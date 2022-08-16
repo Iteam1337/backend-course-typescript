@@ -51,6 +51,36 @@ docker run -p 27017:27017 -it mongo
 
 ---
 
+# Docker Compose
+
+It is tedious to install and maintain databases, queues etc. directly on your workstation. Especially if you are working on two projects that require different versions of MongoDB for example.
+
+A docker-compose.yaml is a file that can describe exactly what your project needs to run. Anyone who clones the repo can get the project up and running within moments.
+
+```bash
+docker compose up
+```
+
+---
+
+# docker-compose.yaml
+
+```yaml
+version: "3"
+
+services:
+  api:
+    build: .
+    ports:
+      - 3000:3000
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+```
+
+---
+
 # Dockerfile
 
 The Dockerfile is a set of instructions that docker uses to package your software.
@@ -65,9 +95,21 @@ RUN apt install -y nginx
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
+---
+
+# Building with docker
+
+```Dockerfile
+FROM node:16
+WORKDIR /api
+ADD * /app/
+RUN npm run ci
+CMD [ "npm", "run", "start" ]
+```
+
 ```bash
-docker build -t my-nginx .
-docker run -p 80:80 -t my-nginx
+docker build -t my-api .
+docker run -p 3000:3000 -t my-api
 ```
 
 ---
