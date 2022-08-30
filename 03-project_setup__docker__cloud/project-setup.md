@@ -20,21 +20,17 @@ npm run dev
 
 # Docker
 
-What is docker?
+Docker enabled developers to package software into _images_. An image can be shared with other developers or deployed to servers and cloud services. All they need is docker and the image to be able to run your software.
 
-- Lightweight virtualization
-- Standard way to run software across clouds and OS's
-- Perfect for microservice architecture
-- Easy management of dependencies
-- Easy to package and share runnable software
+- Similar to virtualization but without the cost of running an entire OS
+- Works on linux, Mac OS, Windows and different CPU architectures
+- Enables easy management of dependencies and resource limits
+- Perfect for running modern microservices
+- Also perfect for keeping old legacy software alive
 
----
-
-# Containers
-
-Docker runs your software in a container where it thinks it has a whole computer for itself.
-
-Any dependencies a container has installed are only available inside that container. You can run ten different versions of Wordpress and MySQL on the same server completely isolated from each other!
+<!--
+I often think of a docker image as a set of instructions on how to build a fish tank, detailing what type of water, temperature and food your fish (the software) needs.
+-->
 
 ---
 
@@ -47,6 +43,19 @@ All of the major open source software is available on docker!
 ```bash
 # Get a MongoDB database running in just a few seconds
 docker run -p 27017:27017 -it mongo
+```
+
+---
+
+# Containers
+
+When docker runs the software inside an image, the running state is called a _container_. Each container is like an isolated bubble running only the software itself. Filesystem and network access to a container needs to be declared in advance.
+
+Thanks to the isolating nature of containers, it is possible to run several different versions of the same software on the same computer.
+
+```bash
+docker run -p 27017:27017 -t mongo:4
+docker run -p 28000:27017 -t mongo:6 # Run mongo 6 on a different port
 ```
 
 ---
