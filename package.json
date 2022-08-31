@@ -1,0 +1,22 @@
+{
+  "name": "backend-course-typescript",
+  "version": "1.0.0",
+  "description": "This repo contains the course material for learning backend development in Typescript/Node.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Iteam1337/backend-course-typescript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Iteam1337/backend-course-typescript/issues"
+  },
+  "homepage": "https://github.com/Iteam1337/backend-course-typescript#readme",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
+}
