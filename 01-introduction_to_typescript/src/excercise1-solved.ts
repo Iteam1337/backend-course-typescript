@@ -6,7 +6,7 @@ function hasBirthday(birthday:Date, currentDate:Date): boolean {
     return birthday.getMonth() == currentDate.getMonth() && birthday.getDate() == currentDate.getDate();
 }
 
-type Person = {
+type PersonX = {
   name: string,
   birthday: Date,
   homeTown: string
@@ -28,13 +28,8 @@ function addPadding(input: string, padding: string | number) {
   }
 }
 
-function double(first: string | number): string | number {
-  if (typeof first === 'string') {
-    return `${first}${first}`
-  } else if (typeof first === 'number') {
-    return first * 2
-  } else {
-    throw new Error('Unexpected type!')
-  }
+interface Person {
+  name: string,
+  age: number,
+  homeTown?: string
 }
-
