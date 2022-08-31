@@ -27,3 +27,14 @@ function addPadding(input: string, padding: string | number) {
       throw new Error('Invalid padding - must be string or number!')
   }
 }
+
+function double(first: string | number): string | number {
+  if (typeof first === 'string') {
+    return `${first}${first}`
+  } else if (typeof first === 'number') {
+    return first * 2
+  } else {
+    throw new Error('Unexpected type!')
+  }
+}
+
